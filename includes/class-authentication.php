@@ -8,9 +8,9 @@ class Authentication
         $this->database = connectToDB();
     }
 
-    public function login( $email = ' ', $password = ' ' ){
+    public function login( $email = '', $password = '' ){
 
-        $error = ' ';
+        $error = '';
 
         // make sure all the fields are filled
         if (empty($email) || empty($password)){
@@ -55,9 +55,9 @@ class Authentication
         }
     }
 
-    public function signup($email = ' ', $password = ' ', $confirm_password = ' '){
+    public function signup($email = '', $password = '', $confirm_password = ''){
 
-        $error = ' ';
+        $error = '';
 
         // make sure all the fields are filled
         if(empty($email) || empty($password) || empty($confirm_password)){
