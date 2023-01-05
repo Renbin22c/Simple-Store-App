@@ -67,11 +67,9 @@ class Orders
                 'email' => $_SESSION['user']['email'],
                 'name' => $_SESSION['user']['email'],
                 'amount' => $total_amount * 100,
-                // 'callback_url' => 'http://simple-store.local/payment-callback',
-                'callback_url' => 'https://nathanonn-friendly-xylophone-54jpgqv6pq3p6wg-8765.preview.app.github.dev/payment-callback',
+                'callback_url' => 'http://simple-store.local/payment-callback',
                 'description' => 'Order #' . $order_id, // Order #3,
-                // 'redirect_url' => 'http://simple-store.local/payment-callback',
-                'redirect_url' => 'https://nathanonn-friendly-xylophone-54jpgqv6pq3p6wg-8765.preview.app.github.dev/payment-verification'
+                'redirect_url' => 'http://simple-store.local/payment-verification'
             ],
             [
                 'Content-Type: application/json',
@@ -102,9 +100,8 @@ class Orders
     /**
      * Update order
      */
-    public function updateOrder( $transaction_id, $status )
+    public function updateOrder( $transaction_id, $status)
     {
-        // update the order status using billplz id that stored as transaction_id in our database
         $statement = $this->database->prepare(
             'UPDATE orders SET status = :status WHERE transaction_id = :transaction_id'
         );
